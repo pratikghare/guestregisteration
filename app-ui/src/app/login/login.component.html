@@ -1,0 +1,132 @@
+<div class="loginContainer">
+        <mat-tab-group class="loginTab hideTabLabels" [(selectedIndex)]="tabIndex">
+            <mat-tab label="Login">
+              <form class="loginForm">
+                <h1>Sign In</h1>
+
+                <mat-form-field *ngIf="userIdActiveState" class="appInput" appearance="outline">
+                  <mat-label>{{ userFormLabels.userIdLabel }}</mat-label>
+                  <input type="text" matInput [formControl]="userIdFormControl"
+                         [placeholder]="userFormLabels.userIdLabel" [errorStateMatcher]="matcher">
+                  <mat-hint *ngIf="userIdError" style="color: red">Please enter a valid <strong>Email/Phone</strong></mat-hint>                           
+                  <mat-error *ngIf="userIdFormControl.hasError('required')">
+                    {{ userFormLabels.userIdLabel }} is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <div class="updatedEmail" *ngIf="!userIdActiveState">
+                  <sub>{{ userFormLabels.userIdLabel.toLocaleUpperCase() }}</sub>
+                  <div style="display: flex">
+                    <p style="font-weight: bold;">{{ userIdFormControl.value }}</p>
+                    <p class="changeEmail" (click)="updateUserId()">Change</p>
+                  </div>
+                </div>
+
+                <mat-form-field *ngIf="!userIdActiveState" class="appInput" appearance="outline">
+                  <mat-label>{{ userFormLabels.passwordLabel }}</mat-label>
+                  <input type="password" matInput [formControl]="passwordFormControl"
+                         [placeholder]="userFormLabels.passwordLabel">
+                  
+                         <mat-hint *ngIf="passwordError" style="color: red"><strong>Invalid</strong> password</mat-hint> 
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    {{ userFormLabels.passwordLabel }} is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <p class="changeEmail" *ngIf="userData?.type === 'Email' && !userIdActiveState" (click)="tabChange(2)" style="margin-left: 0;">Forgot Password?</p>
+                
+                
+
+                <button type="submit" class="appButton spinnerButton" (click)="userLogin($event)"
+                [disabled]="!userIdFormControl.valid || !userIdFormControl.value?.length || ((!passwordFormControl.valid  || !passwordFormControl.value?.length) && !userIdActiveState)">
+                  <div style="margin-right: 1em;">{{ !userIdActiveState ? 'Sign In' : 'Continue...' }}</div>
+                  <mat-spinner *ngIf="showLoader" diameter="20"></mat-spinner>
+                </button>
+
+                <p style="margin-left: 0; margin-top: 1em;">Don't have an account? <span  class="changeEmail" (click)="tabChange(1)">Register now</span></p>
+              </form>
+            </mat-tab>
+
+
+            <mat-tab label="Register">
+              <form class="loginForm">
+                <h1>Sign Up</h1>
+
+                <mat-form-field class="appInput" appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput [formControl]="emailIdFormControl" [errorStateMatcher]="matcher"
+                         placeholder="Ex. pat@example.com">
+                  <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                  <mat-error *ngIf="emailIdFormControl.hasError('email') && !emailIdFormControl.hasError('required')">
+                    Please enter a valid email address
+                  </mat-error>
+                  <mat-error *ngIf="emailIdFormControl.hasError('required')">
+                    Email is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="appInput" appearance="outline">
+                  <mat-label>{{ userFormLabels.passwordLabel }}</mat-label>
+                  <input type="password" matInput [formControl]="passwordFormControl"
+                         [placeholder]="userFormLabels.passwordLabel">
+                  
+                         <mat-hint *ngIf="passwordError" style="color: red"><strong>Invalid</strong> password</mat-hint> 
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    {{ userFormLabels.passwordLabel }} is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <button type="submit" class="appButton spinnerButton" (click)="registerUser()"
+                [disabled]="!emailIdFormControl.valid || !passwordFormControl.valid || !emailIdFormControl.value?.length || !passwordFormControl.value?.length">
+                  <div style="margin-right: 1em;">Register</div>
+                  <mat-spinner *ngIf="showLoader" diameter="20"></mat-spinner>
+                </button>
+
+                <p style="margin-left: 0; margin-top: 1em;">Already a user? <span  class="changeEmail" (click)="tabChange(0)">Login here</span></p>
+              </form>
+            </mat-tab>
+
+
+            <mat-tab label="Forgot Password">
+              <form class="loginForm">
+                <h1>Forgot Password</h1>
+
+                <mat-form-field *ngIf="userIdActiveState" class="appInput" appearance="outline">
+                  <mat-label>{{ userFormLabels.userIdLabel }}</mat-label>
+                  <input type="text" matInput [formControl]="userIdFormControl"
+                         [placeholder]="userFormLabels.userIdLabel" [errorStateMatcher]="matcher">
+                  <mat-hint *ngIf="userIdError" style="color: red">Please enter a valid <strong>Email/Phone</strong></mat-hint>                           
+                  <mat-error *ngIf="userIdFormControl.hasError('required')">
+                    {{ userFormLabels.userIdLabel }} is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <div class="updatedEmail" *ngIf="!userIdActiveState">
+                  <sub>{{ userFormLabels.userIdLabel.toLocaleUpperCase() }}</sub>
+                  <div style="display: flex">
+                    <p style="font-weight: bold;">{{ userIdFormControl.value }}</p>
+                    <p class="changeEmail" (click)="updateUserId()">Change</p>
+                  </div>
+                </div>
+
+                <mat-form-field *ngIf="!userIdActiveState" class="appInput" appearance="outline">
+                  <mat-label>OTP</mat-label>
+                  <input type="password" matInput [formControl]="passwordFormControl" placeholder="OTP">
+                  <mat-hint><span style="margin-left: 0;" [class.changeEmail]="countDown <= 0" (click)="sendOTP()">{{ resetOTP }}</span></mat-hint> 
+                  <mat-hint *ngIf="passwordError" style="color: red"><strong>Invalid</strong> password</mat-hint> 
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    OTP is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <button type="submit" class="appButton spinnerButton" (click)="forgotPassword($event)"
+                [disabled]="!userIdFormControl.valid || !userIdFormControl.value?.length || ((!passwordFormControl.valid  || !passwordFormControl.value?.length) && !userIdActiveState)">
+                  <div style="margin-right: 1em;">{{ !userIdActiveState ? 'Submit' : 'Send OTP...' }}</div>
+                  <mat-spinner *ngIf="showLoader" diameter="20"></mat-spinner>
+                </button>
+
+                <p style="margin-left: 0; margin-top: 1em;">Don't have an account? <span  class="changeEmail" (click)="tabChange(1)">Register now</span></p>
+              </form>
+            </mat-tab>
+        </mat-tab-group>
+</div>

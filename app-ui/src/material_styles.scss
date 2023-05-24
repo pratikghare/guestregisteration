@@ -1,0 +1,56 @@
+
+::ng-deep .appButton {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  font-family: "Roboto";
+}
+
+::ng-deep .hideTabLabels .mat-mdc-tab-labels{
+  display: none;
+}
+
+::ng-deep .appRedButton{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Poppins', "Roboto";
+  background-color: rgb(255, 81, 81);
+  color: #fff;
+}
+
+
+/* ============= MAT FORM FIELD OUTLINE ============= */
+::ng-deep .appInput.mat-form-field-appearance-outline .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .appInput.mat-form-field-appearance-outline .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-radius: 0px;
+}
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
+  border-radius: 0px;
+}
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mat-mdc-form-field-infix {
+  min-height: auto !important;
+}
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mdc-text-field .mdc-floating-label {
+  top: 65%;
+  transform: translateY(-78%);
+  pointer-events: none;
+}
+::ng-deep .inputStyle.mat-form-field-appearance-outline .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY( -34.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75)) !important;
+  transform: var(--mat-mdc-form-field-label-transform) !important;
+}
+/* ============= MAT FORM FIELD OUTLINE ============= */
+
+::ng-deep .spinnerButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

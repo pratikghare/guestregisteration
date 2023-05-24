@@ -1,0 +1,20 @@
+
+<div class="slideMenu">
+    <ul>
+        <li class="parent" [class.active]="item?.label == selectedItem.label" (click)="handleClick(item)" [class.listItem]="!item?.children?.length" *ngFor="let item of data">
+            <span class="title" [class.noIcon]="!item?.icon">
+                <mat-icon *ngIf="item?.icon">{{ item.icon }}</mat-icon>
+                {{ item.label }}
+            </span>
+
+            <ul *ngIf="item?.children?.length">
+                <li class="listItem" [class.active]="i?.label == selectedItem.label" (click)="handleClick(i)" *ngFor="let i of item.children">
+                    <span class="title" [class.noIcon]="!i?.icon">
+                        <mat-icon *ngIf="item?.icon">{{ i.icon }}</mat-icon>
+                        {{ i.label }}
+                    </span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>

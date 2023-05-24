@@ -1,0 +1,75 @@
+
+
+
+.loginContainer{
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    min-height: 85%;
+    width: 100%;
+    margin-top: 10%;
+    // margin-top: 5%;
+    // padding-top: 1em;
+}
+.loginTab{
+    grid-column: 2;
+}
+
+.loginForm{
+    margin: 1em;
+}
+
+.card{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 0px;
+    min-width: 400px;
+}
+
+.loginForm{
+    margin: 1em;
+    display: grid;
+    max-width: 50em;
+}
+
+.appButton{
+    background-color: rgb(255, 81, 81);
+    border: none;
+    font-family: 'Poppins';
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 1em;
+
+    &:disabled{
+        background-color: rgba(255, 81, 81, 0.7);
+    }
+}
+.updatedEmail{
+    margin-bottom: 1em;
+}
+.changeEmail{
+    color: rgb(255, 81, 81);
+    text-decoration: underline;
+    margin-left: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+h1, h2, h3, h4, *{
+    font-family: 'Poppins';
+}
+
+.appButton ::ng-deep .mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: #fff;
+}
+
+
+@media screen and (max-width: 600px) {
+    .loginContainer{
+        display: grid;
+        grid-template-columns: 4% 1fr 4%;
+    }
+}

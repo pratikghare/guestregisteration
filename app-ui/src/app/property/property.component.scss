@@ -1,0 +1,31 @@
+
+
+.property{
+    display: grid;
+}
+
+.propertyList{
+    display: flex;
+    justify-content: space-between;
+}
+h1, h2, h3, h4{
+    font-family: 'Poppins', 'Roboto', 'SegoeUI';
+    mat-icon{
+        vertical-align: -6px;
+        margin-right: 10px;
+    }
+}
+button{
+    font-family: 'Poppins', 'Roboto', 'SegoeUI';
+}
+.appRedButton{
+    height: 30px;
+}
+
+.property ::ng-deep .app-table{
+    max-height: calc(100vh - 150px);
+}
+
+.property ::ng-deep .mat-mdc-tab-body-content {
+    overflow-x: hidden;   
+}

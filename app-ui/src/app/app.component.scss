@@ -1,0 +1,12 @@
+@use "../styles.scss" as styles;
+@import url("../material_styles.scss");
+
+.appContainer {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100%;
+}
+
+.appBody > * {
+  // height: calc(100% - #{styles.$headerHeight} - #{styles.$footerHeight});
+}

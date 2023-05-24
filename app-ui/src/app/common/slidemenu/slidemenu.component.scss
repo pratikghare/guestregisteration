@@ -1,0 +1,51 @@
+
+.slideMenu>ul{
+    margin-top: 0;
+}
+
+ul{
+    list-style: none;
+    font-family: 'Poppins', 'Roboto';
+    padding: 0;
+}
+li{
+    padding: 10px 0 10px 10px;
+    font-family: 'Poppins', 'Roboto';
+    font-size: 16px;
+    margin: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.parent > ul{
+    // margin-top: 0.5em;
+    padding-left: 3em;
+    margin-top: 0;
+}
+
+.listItem{
+    cursor: pointer;
+    &:hover{
+        background-color: #e8e8e8;
+        background-color: rgba(255, 81, 81, 0.1);
+    }
+    &.active{
+        background-color: rgba(255, 81, 81, 0.1);
+    }
+}
+
+.title{
+    mat-icon{
+        margin-right: 10px;
+        vertical-align: -6px;
+    }
+    &.noIcon{
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .parent.listItem{
+        padding-left: 2em;
+    }
+}

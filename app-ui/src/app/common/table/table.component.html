@@ -1,0 +1,11 @@
+<mat-table [dataSource]="dataSource" class="app-table">
+    <div *ngFor="let col of columns">
+        <ng-container matColumnDef="{{ col.id }}">
+            <mat-header-cell *matHeaderCellDef>{{ col.value }}</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element[col.id] }}</mat-cell>
+        </ng-container>
+    </div>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
