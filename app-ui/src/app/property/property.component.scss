@@ -1,7 +1,8 @@
 
 
 .property{
-    display: grid;
+    // display: grid;
+    // max-width: calc(100% - 10px);
 }
 
 .propertyList{
@@ -27,5 +28,5 @@ button{
 }
 
 .property ::ng-deep .mat-mdc-tab-body-content {
-    overflow-x: hidden;   
+    overflow-x: auto;
 }

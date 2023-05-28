@@ -1,0 +1,47 @@
+
+.addTenants{
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-column-gap: 1em;
+    align-items: end;
+}
+.appAccordion{
+    flex: 1;
+}
+
+.expansionHeading{
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.appAccordion ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+}
+
+.appIconButton{
+    width: 49px;
+    height: 49px;
+}
+
+button{
+    font-family: 'Poppins', 'Roboto', 'SegoeUI';
+}
+
+.buttonContainer{
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        height: 30px;
+        display: flex;
+        align-items: center;
+        mat-icon{
+            margin-right: 10px;
+            font-size: 18px;
+        }
+    }
+    .appButton{
+        border: 1px solid #e0e0e0;
+    }
+}

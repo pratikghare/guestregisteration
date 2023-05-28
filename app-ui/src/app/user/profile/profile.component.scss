@@ -5,7 +5,7 @@
 
 @media screen and (max-width: 600px) {
     .grid-style{
-        grid-template-columns: repeat(autofit, minmax(160px, auto)) !important;
+        grid-template-columns: repeat(autofit, minmax(160px, 1fr)) !important;
     }
 }
 
@@ -32,6 +32,8 @@ h3{
 .generalProfile ::ng-deep .mat-mdc-tab-labels{
     display: none;
 }
+
+
 .updatePasswordForm{
     display: grid;
     .buttonContainer{

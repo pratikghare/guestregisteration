@@ -1,0 +1,19 @@
+<div class="addTenants">
+    <mat-accordion class="appAccordion">
+        <mat-expansion-panel *ngFor="let form of tenantAddFormList; let i = index">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <strong class="expansionHeading">Tenant {{ i+1 }}</strong>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <add-new-tenant></add-new-tenant>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+    <button class="appIconButton" (click)="addNewForm()"> <mat-icon>add</mat-icon> </button>
+</div>
+
+<div class="buttonContainer">
+    <button class="appButton" (click)="cancelChanges()"> <mat-icon>undo</mat-icon> Cancel</button>
+    <button class="appRedButton" (click)="saveChanges()">Add Tenant(s)</button>
+</div>

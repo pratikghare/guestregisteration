@@ -11,6 +11,10 @@
   display: none;
 }
 
+::ng-deep .hideTabLabels .mat-mdc-tab-body-content{
+  padding-right: 10px;
+}
+
 ::ng-deep .appRedButton{
   border: none;
   outline: none;
@@ -21,6 +25,12 @@
   color: #fff;
 }
 
+
+::ng-deep .app-heading{
+  font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(255, 81, 81);
+  font-weight: bold;
+}
 
 /* ============= MAT FORM FIELD OUTLINE ============= */
 ::ng-deep .appInput.mat-form-field-appearance-outline .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading,
@@ -47,10 +57,37 @@
   --mat-mdc-form-field-label-transform: translateY( -34.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75)) !important;
   transform: var(--mat-mdc-form-field-label-transform) !important;
 }
+
+// DatePicker
+::ng-deep .inputStyle.inputDatePickerStyle.mat-form-field-appearance-outline .mdc-text-field .mdc-floating-label {
+  top: 55% !important;
+}
+::ng-deep .inputStyle.inputDatePickerStyle.mat-form-field-appearance-outline .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mdc-notched-outline--upgraded .mdc-floating-label--float-above {
+  --mat-mdc-form-field-label-transform: translateY(-38.75px) scale(var(--mat-mdc-form-field-floating-label-scale, 0.75)) !important;
+  transform: var(--mat-mdc-form-field-label-transform) !important;
+}
+::ng-deep .inputStyle.inputDatePickerStyle input{
+  margin-top: 2px;
+}
+
+
 /* ============= MAT FORM FIELD OUTLINE ============= */
 
 ::ng-deep .spinnerButton{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+::ng-deep .appIconButton{
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  color: #888;
+  mat-icon{
+    vertical-align: 6px;
+  }
 }

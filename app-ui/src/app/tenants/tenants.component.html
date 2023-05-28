@@ -1,1 +1,14 @@
-<p>tenants works!</p>
+<div class="tenant">
+    <mat-tab-group class="hideTabLabels" [(selectedIndex)]="tabIndex">
+        <mat-tab label="First">
+            <div class="tenantList">
+                <h3> <mat-icon>list</mat-icon>Tenants List </h3>
+                <button class="appRedButton" (click)="changeTab(1)">Add Tenant</button>
+            </div>
+            <app-table [data]="tableData"></app-table>
+        </mat-tab>
+        <mat-tab label="Second">
+            <add-tenant (updateEvent)="handleTenantUpdate($event)"></add-tenant>
+        </mat-tab>
+    </mat-tab-group>
+</div>

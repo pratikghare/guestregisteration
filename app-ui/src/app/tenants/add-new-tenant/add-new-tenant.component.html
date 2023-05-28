@@ -1,0 +1,126 @@
+<div class="add-property">
+    <!-- <div #map style="width:100%;height:400px"></div> -->
+    <h3 style="margin-top: 0;">Add a Tenant</h3>
+
+    <form class="grid-style">
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Contact Number</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Alternate Contact Number</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Pincode</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput>
+        </mat-form-field>     
+    </form>
+
+    <h3 style="margin-top: 0;">Indentity</h3>
+
+    <form class="grid-style">
+        
+        <div style="margin-top: 10px;">
+            <input [formControl]="panCardInputUpload" type="file" name="Select a File" id="file">
+            <!-- <button mat-stroked-button (click)="openBottomSheet($event)">Choose file</button> -->
+        </div>
+        
+        <div class="userImage">
+
+        </div>
+
+        <div>
+            <input [formControl]="panCardInputUpload" type="file" name="Select a File" id="file">
+            <!-- <button mat-stroked-button (click)="openBottomSheet($event)">Choose file</button> -->
+        </div>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Aadhar Card</mat-label>
+            <input matInput>
+        </mat-form-field>
+        
+        <div>
+            <input [formControl]="panCardInputUpload" type="file" name="Select a File" id="file">
+            <!-- <button type="file" mat-stroked-button (click)="openBottomSheet($event)">Choose file</button> -->
+        </div>  
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>PAN Card</mat-label>
+            <input matInput>
+        </mat-form-field> 
+    </form>
+
+
+    <h3 style="margin-top: 0;">Agreement</h3>
+
+    <form class="grid-style">
+        <mat-form-field [ngStyle]="{ 'grid-column' : !guardianRequired ? '1 / span 2' : '' }" class="inputStyle inputDatePickerStyle" appearance="outline">
+            <mat-label>Select a Property</mat-label>
+            <mat-select (selectionChange)="updateProperty($event)">
+              <mat-option class="propertyOption" *ngFor="let property of propertyList" [value]="property">
+                <span class="propertyAddress">{{property.address}} <sub>{{ property.city + ', ' + property.country }} --- {{ property.type }}</sub></span>
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="guardianRequired" class="inputStyle" appearance="outline">
+            <mat-label>Guardian Number</mat-label>
+            <input matInput type="number">
+        </mat-form-field> 
+
+        <mat-form-field appearance="outline" class="inputStyle inputDatePickerStyle">
+            <mat-label>From Date</mat-label>
+            <input matInput [matDatepicker]="from_picker">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker-toggle matIconSuffix [for]="from_picker"></mat-datepicker-toggle>
+            <mat-datepicker #from_picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="inputStyle inputDatePickerStyle">
+            <mat-label>To Date</mat-label>
+            <input matInput [matDatepicker]="to_picker">
+            <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+            <mat-datepicker-toggle matIconSuffix [for]="to_picker"></mat-datepicker-toggle>
+            <mat-datepicker #to_picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+
+</div>

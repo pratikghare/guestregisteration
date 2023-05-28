@@ -1,8 +1,58 @@
 <div class="add-property">
-    <!-- <iframe src="[your unique google URL] " width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
-    <!-- <map-selector></map-selector> -->
-    
-<div #map style="width:100%;height:400px"></div>
+    <!-- <div #map style="width:100%;height:400px"></div> -->
+    <h3 style="margin-top: 0;">Register a Property</h3>
+
+    <form class="grid-style">
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Property Type</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let property of propertyType" [value]="property">
+                {{property}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Avaiable Rooms</mat-label>
+            <input matInput type="number">
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Address Line 1</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Address Line 2</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Pincode</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" style="grid-column: 1/span 2;" appearance="outline">
+            <mat-label>Area Police Station</mat-label>
+            <input matInput>
+        </mat-form-field>        
+    </form>
+
     <div class="buttonContainer">
         <button class="appButton" (click)="cancelChanges()"> <mat-icon>undo</mat-icon> Cancel</button>
         <button class="appRedButton" (click)="saveChanges()">Save Property</button>

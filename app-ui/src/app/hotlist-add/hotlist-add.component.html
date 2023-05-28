@@ -1,0 +1,39 @@
+<div class="hotlist-add">
+    <h3 style="margin-top: 0;">Hot List Add</h3>
+
+    <form class="grid-style">
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>First Name*</mat-label>
+            <input matInput placeholder="First Name">
+        </mat-form-field>
+        
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Last Name*</mat-label>
+            <input matInput placeholder="Last Name">
+        </mat-form-field>
+
+        <div style="margin-top: 10px;">
+            <input type="file" name="Select a File" id="file">
+            <!-- <button mat-stroked-button (click)="openBottomSheet($event)">Choose file</button> -->
+        </div>
+        
+        <div class="userImage">
+
+        </div>
+        
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>Aadhar Number</mat-label>
+            <input matInput placeholder="Aadhar Number (Optional)">
+        </mat-form-field>
+
+        <mat-form-field class="inputStyle" appearance="outline">
+            <mat-label>PAN Card</mat-label>
+            <input matInput placeholder="PAN Card (Optional)">
+        </mat-form-field>
+    </form>
+
+    <div class="buttonContainer">
+        <button class="appButton" (click)="cancelChanges()"> <mat-icon>undo</mat-icon> Cancel</button>
+        <button class="appRedButton" (click)="saveChanges()">Save HotList</button>
+    </div>
+</div>

@@ -1,11 +1,22 @@
-<mat-table [dataSource]="dataSource" class="app-table">
-    <div *ngFor="let col of columns">
-        <ng-container matColumnDef="{{ col.id }}">
-            <mat-header-cell *matHeaderCellDef>{{ col.value }}</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element[col.id] }}</mat-cell>
-        </ng-container>
-    </div>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+<div class="tableContainer">
+    <mat-table [dataSource]="dataSource" class="app-table">
+        <div *ngFor="let col of columns">
+            <ng-container matColumnDef="{{ col.id }}">
+                <mat-header-cell *matHeaderCellDef>{{ col.value }}</mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <span *ngIf="col.id != 'actionColumn' && col.type != 'LONG_STRING'">{{ element[col.id] ? element[col.id] : '-' }}</span>
+                    <span *ngIf="col.id != 'actionColumn' && col.type == 'LONG_STRING'">{{ element[col.id] ? element[col.id].substring(0, 20) + '...' : '-' }}</span>
+                    <span *ngIf="col.id == 'actionColumn'">
+                        <button class="appIconButton" *ngFor="let action of actions">
+                            <mat-icon>{{ action.icon }}</mat-icon>
+                        </button>
+                    </span>
+                </mat-cell>
+            </ng-container>
+        </div>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+        <mat-row [class.rowClick]="enableRowClick" (click)="handleRowClick(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    
+</div>

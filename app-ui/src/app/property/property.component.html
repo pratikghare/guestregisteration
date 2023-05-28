@@ -5,7 +5,7 @@
                 <h3> <mat-icon>list</mat-icon>Property List </h3>
                 <button class="appRedButton" (click)="changeTab(1)">Add Property</button>
             </div>
-            <app-table></app-table>
+            <app-table [data]="tableData"></app-table>
         </mat-tab>
         <mat-tab label="Second">
             <add-property (updateEvent)="handlePropertyUpdate($event)"></add-property>

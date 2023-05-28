@@ -1,12 +1,12 @@
 <div class="generalProfile">
-    <mat-tab-group [(selectedIndex)]="tabIndex">
+    <mat-tab-group [(selectedIndex)]="tabIndex" class="hideTabLabels">
         <mat-tab label="Profie">
             <h3 style="margin-top: 0;">Account Details</h3>
 
             <form class="grid-style">
                 <mat-form-field class="inputStyle" appearance="outline">
-                <mat-label>First Name</mat-label>
-                <input matInput>
+                    <mat-label>First Name</mat-label>
+                    <input matInput>
                 </mat-form-field>
             
                 <mat-form-field class="inputStyle" appearance="outline">
@@ -45,12 +45,28 @@
                 </mat-form-field>
             </form>
 
+            <ng-container>
+                <h3 style="margin-top: 0;">KYC</h3>
+
+                <form class="grid-style">
+                    <mat-form-field class="inputStyle" appearance="outline">
+                        <mat-label>Aadhar</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                
+                    <mat-form-field class="inputStyle" appearance="outline">
+                        <mat-label>PAN Card</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+            </ng-container>
+
             <h3>Login Details</h3>
             
             <form class="grid-style">
                 <mat-form-field class="inputStyle" appearance="outline">
-                <mat-label>Email</mat-label>
-                <input matInput>
+                    <mat-label>Email</mat-label>
+                    <input matInput>
                 </mat-form-field>
             
                 <mat-form-field class="inputStyle" appearance="outline">

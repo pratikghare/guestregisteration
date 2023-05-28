@@ -1,0 +1,42 @@
+<mat-tab-group class="hideTabLabels" [(selectedIndex)]="tabIndex" animationDuration="0">
+    <mat-tab label="First"> 
+        <div class="policeSearch">
+            <div *ngIf="selectedChips?.length" class="matChipContainer">
+                <span class="chip" style="color: #888;">Filters :</span> 
+                <mat-chip-option (click)="removeChip(chip)" *ngFor="let chip of selectedChips" selected class="chip">
+                    <span>{{ chip }}</span>
+                    <mat-icon>close</mat-icon>
+                </mat-chip-option>
+            </div>
+        
+            <div class="searchContainer">
+                <div class="searchBox">
+                    <input class="searchInput" 
+                    placeholder="Search by Name, Aadhar, PAN Card..." 
+                    [formControl]="searchForm"
+                    type="text" />
+                    <mat-icon *ngIf="!searchLoader" class="searchLoader">search</mat-icon>
+                    <mat-spinner *ngIf="searchLoader" class="searchLoader" strokeWidth="2" diameter="20"></mat-spinner>
+                </div>
+        
+                <!-- <mat-form-field>
+                    <mat-label>FilterItems</mat-label>
+                    <mat-select multiple>
+                      <mat-option *ngFor="let filter of filterItems" [value]="filter">
+                        {{filter}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+        
+                <button class="appButton" matBadge="20" (click)="appendToFilterList('HotList')">HotList</button>
+            </div>
+        
+            <app-table [data]="tableData" [enableRowClick]="true" (rowClickEvent)="handleRowClick($event)"></app-table>
+        </div>
+        <button class="changeEmail" (click)="changeTab(1)">Add Hotlist Entry</button>
+    </mat-tab>
+    <mat-tab label="Second">
+        <hotlist-add (addEvent)="handleHotListAdd($event)"></hotlist-add>
+    </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>

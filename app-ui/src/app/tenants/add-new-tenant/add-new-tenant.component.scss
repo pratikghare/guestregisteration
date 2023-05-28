@@ -56,3 +56,26 @@ h3{
     border-bottom: 1px dotted #888;
     margin-top: 1em;
 }
+
+.userImage{
+    height: 120px;
+    width: 120px;
+    background-image: url("../../../assets/default-user.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 2em;
+    border-radius: 50%;
+}
+
+.propertyAddress{
+    font-size: 14px;
+    display: grid;
+}
+.propertyOption{
+    border-bottom: 1px solid #e0e0e0;
+    padding-top: 3px;
+}
+.propertyOption:nth-last-child(1){
+    border-bottom: none;
+}

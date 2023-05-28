@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Columns, TableModal } from './TableModal';
+import { Action, Columns, TableModal } from './TableModal';
 
 @Component({
   selector: 'app-table',
@@ -13,24 +13,35 @@ export class TableComponent {
 
   data: Array<any> = [];
   filterData: Array<any> = [];
+  actions: Action[] = [];
   dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any[]>([]);
+
+  @Input() enableRowClick: boolean = false;
+  @Output() rowClickEvent: EventEmitter<any> = new EventEmitter();
 
   @Input('data') set inputData(val: TableModal){
     this.updateData(val);
   }
 
   constructor(){
-    this.updateData(newData);
+    // this.updateData(newData);
   }
 
   updateData(data: TableModal){
     this.columns = data.columns ? data.columns : [];
     this.displayedColumns = data.columns.map(col => col.id);
+    this.actions = data.actions ? data.actions : [];
     this.createTable(data.data);
   }
 
   createTable(data: any[] = []){
     this.dataSource = new MatTableDataSource(data);
+  }
+
+  handleRowClick(row: any){
+    if(!this.enableRowClick) return;
+    this.rowClickEvent.emit(row);
+    // console.log("ROW CLICKED", row);
   }
 }
 
@@ -74,5 +85,6 @@ const newData: TableModal = {
     { id: "weight", value: "Weight", type: "STRING" },
     { id: "symbol", value: "Symbol", type: "STRING" }
   ],
-  enableSearch: false
+  enableSearch: false,
+  actions: []
 }

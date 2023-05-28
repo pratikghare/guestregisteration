@@ -1,18 +1,26 @@
 <mat-toolbar class="toolBar">
-    <button mat-icon-button class="example-icon" 
-    (click)="toggleSlideMenu()"
-    aria-label="Example icon-button with menu icon">
+    <button *ngIf="currentUser?.role != policeRole" mat-icon-button (click)="toggleSlideMenu()">
         <mat-icon>menu</mat-icon>
     </button>
+
+    <button *ngIf="currentUser?.role == policeRole" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
     <span class="example-spacer"></span>
-    <img src="assets/logo.png" alt="LOGO" height="60px">
-    <!-- <span>Guest Registeration</span> -->
+    <!-- <img src="assets/logo.png" alt="LOGO" height="60px"> -->
+    <span class="app-heading" [class.admin]="currentUser?.role == policeRole">Guest {{ currentUser?.role == policeRole ? 'Search' : 'Registeration' }}</span>
+    <span class="toolBarImage" *ngIf="currentUser?.role == policeRole">
+        <img src="../../../assets/mh-police.png" alt="" srcset="">
+    </span>
 </mat-toolbar>
 <div class="toolBarGap"></div>
 
-<section class="dashboard" id="dashboard" #dashboard [class.active]="slideMenuToggle">
+<section class="dashboard" *ngIf="currentUser?.role != policeRole" id="dashboard" #dashboard [class.active]="slideMenuToggle">
     <div class="sideMenu">
-        <slide-menu [selectedItem]="selectedItem" (selectedMenuItem)="handleEmitEvent($event)"></slide-menu>
+        <slide-menu [data]="slideMenuData" [selectedItem]="selectedItem" (selectedMenuItem)="handleEmitEvent($event)"></slide-menu>
     </div>
 
     <div class="dashboardBody">
@@ -20,4 +28,8 @@
         <user-property *ngIf="selectedItem?.componentSelector === 'property'"></user-property>
         <user-tenants *ngIf="selectedItem?.componentSelector === 'tenants'"></user-tenants>
     </div>
+</section>
+
+<section class="dashboardAdmin" *ngIf="currentUser?.role == policeRole" #dashboard>
+    <police-search></police-search>
 </section>

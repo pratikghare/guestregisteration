@@ -21,9 +21,13 @@ import { TenantsComponent } from './tenants/tenants.component';
 import { TableComponent } from './common/table/table.component';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { MapSelectorComponent } from './common/map-selector/map-selector.component';
+import { AddTenantComponent } from './tenants/add-tenant/add-tenant.component';
+import { PoliceSearchComponent } from './police-search/police-search.component';
+import { HotlistAddComponent } from './hotlist-add/hotlist-add.component';
+import { AddNewTenantComponent } from './tenants/add-new-tenant/add-new-tenant.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, PageNotFoundComponent, ProfileComponent, DashboardComponent, SlidemenuComponent, PropertyComponent, TenantsComponent, TableComponent, AddPropertyComponent, MapSelectorComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, LoginComponent, PageNotFoundComponent, ProfileComponent, DashboardComponent, SlidemenuComponent, PropertyComponent, TenantsComponent, TableComponent, AddPropertyComponent, MapSelectorComponent, AddTenantComponent, PoliceSearchComponent, HotlistAddComponent, AddNewTenantComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

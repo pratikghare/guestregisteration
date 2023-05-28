@@ -24,33 +24,7 @@ export class SlidemenuComponent {
     componentSelector: "profile"
   };
 
-  data: Array<SlideMenu> = [
-    {
-      label: "Profile",
-      // icon: "person",
-      icon: 'manage_accounts',
-      componentSelector: `profile`
-    },
-    {
-      icon: 'real_estate_agent',
-      label: "Property",
-      componentSelector: `property`
-    },
-    {
-      label: "Tenants",
-      icon: 'groups',
-      componentSelector: `tenants`
-    },
-    {
-      label: "Activity",
-      icon: 'history'
-    },
-    {
-      icon: 'logout',
-      label: 'Logout',
-      func: this.logout.bind(this)
-    }
-  ];
+  @Input() data: Array<SlideMenu> = [];
   @Output() selectedMenuItem: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router){
