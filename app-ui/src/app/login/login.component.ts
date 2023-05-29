@@ -166,7 +166,24 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   }
 }
 
-export const users: Array<any> = [
+export const users: any[] = [
+  {
+    email: 'owner',
+    password: 'password',
+    phone: '9730070150',
+    role: 'admin',
+    otp: '1234'
+  },
+  {
+    email: 'mh_police',
+    password: 'password',
+    // phone: '9730070150',
+    role: 'admin',
+    // otp: '1234'
+  }
+]
+
+export const users1: Array<any> = [
   {
     email: "pratikghare888@gmail.com",
     password: 'kitarperahg123',
