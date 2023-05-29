@@ -1,4 +1,4 @@
-<div class="tableContainer">
+<div class="tableContainer" [class.showBorder]="!dataSource.data.length">
     <mat-table [dataSource]="dataSource" class="app-table">
         <div *ngFor="let col of columns">
             <ng-container matColumnDef="{{ col.id }}">
@@ -14,9 +14,14 @@
                 </mat-cell>
             </ng-container>
         </div>
-    
+   
         <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
         <mat-row [class.rowClick]="enableRowClick" (click)="handleRowClick(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
     
+    <div class="noRecords" *ngIf="!dataSource.data.length">
+        <ul>
+            <li>No records found</li>
+        </ul>
+    </div>
 </div>

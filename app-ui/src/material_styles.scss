@@ -58,7 +58,7 @@
   transform: var(--mat-mdc-form-field-label-transform) !important;
 }
 
-// DatePicker
+/* DatePicker */
 ::ng-deep .inputStyle.inputDatePickerStyle.mat-form-field-appearance-outline .mdc-text-field .mdc-floating-label {
   top: 55% !important;
 }
@@ -86,8 +86,8 @@
   border-radius: 0;
   outline: none;
   cursor: pointer;
-  color: #888;
-  mat-icon{
-    vertical-align: 6px;
-  }
+  color: #888;  
+}
+::ng-deep .appIconButton mat-icon{
+  vertical-align: 6px;
 }

@@ -17,6 +17,7 @@
     border: none;
 }
 
+
 .appIconButton{
     border: none;
     outline: none;
@@ -40,6 +41,7 @@ mat-row.mat-mdc-row, mat-header-row.mat-mdc-header-row{
     border-bottom: 1px solid #e0e0e0 !important;
 }
 
+
 .app-table ::ng-deep .rowClick{
     cursor: pointer;
     &:hover{
@@ -51,4 +53,24 @@ mat-row.mat-mdc-row, mat-header-row.mat-mdc-header-row{
     .mat-column-actionColumn{
         margin: 0 !important;
     }
+}
+
+.tableContainer .app-table{
+    height: 100%;
+}
+
+.tableContainer.showBorder{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    .app-table{
+        height: auto;
+    }
+}
+.tableContainer .noRecords{
+    border: 1px solid #e0e0e0;
+    margin-top: -12px;
+    padding-top: 1em;
+    font-family: 'Poppins', 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: none;
+    width: 100%;
 }

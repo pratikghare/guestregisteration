@@ -178,7 +178,7 @@ export const users: any[] = [
     email: 'mh_police',
     password: 'password',
     // phone: '9730070150',
-    role: 'admin',
+    role: 'police',
     // otp: '1234'
   }
 ]

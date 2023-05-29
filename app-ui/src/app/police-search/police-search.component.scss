@@ -74,3 +74,9 @@
     border: 1px solid #e0e0e0;
     font-size: 15px;
 }
+
+@media screen and (min-width: 600px) {
+    .policeSearch ::ng-deep .tableContainer{
+        height: calc(100vh - 250px);
+    }
+}
